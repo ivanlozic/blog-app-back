@@ -3,8 +3,7 @@ const mongoose = require('./db/db')
 const cors = require('cors')
 const app = express()
 const port = process.env.PORT || 5000
-const orderRoutes = require('./routes/orderRoutes')
-
+const routes = require('./routes/routes')
 
 app.use(express.json())
 app.use(cors())
@@ -18,7 +17,7 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.use('/', orderRoutes)
+app.use('/', routes)
 
 app.listen(port, () => {
   console.log('Server is listening')
